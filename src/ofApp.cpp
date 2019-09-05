@@ -21,6 +21,13 @@ void ofApp::setup(){
 void ofApp::setupMedia(){
 	// IMAGES
 	background.load("images/background.png");
+	text1.load("images/lorem1.png");
+	text2.load("images/lorem2.png");
+	text3.load("images/lorem3.png");
+	text4.load("images/lorem4.png");
+	text5.load("images/lorem5.png");
+	text6.load("images/lorem6.png");
+	text7.load("images/lorem7.png");
 }
 
 //--------------------------------------------------------------
@@ -49,6 +56,17 @@ void ofApp::setupAnimations(){
 	// 	150
 	// );
 	/**
+	 * ALL THE TEXT FADING GO HERE
+	 */
+	texts.push_back(text1);
+	texts.push_back(text2);
+	texts.push_back(text3);
+	texts.push_back(text4);
+	texts.push_back(text5);
+	texts.push_back(text6);
+	texts.push_back(text7);
+	manifestoFading = TextFading(texts);
+	/**
 	 * ALL THE HAND MARKERS GO HERE
 	 */
 	// EUROPE
@@ -64,6 +82,7 @@ void ofApp::setupAnimations(){
 //--------------------------------------------------------------
 void ofApp::update(){
 	updateSerials();
+	incrementer++;
 	if (fabs(universalCounter - TWO_PI) < 0.0001) {
 		universalCounter = 0.0f;
 	} else {
@@ -125,6 +144,8 @@ void ofApp::drawBackground(){
 	}
 	ofPopStyle();
 	background.draw(0, 0, fixedWidth, fixedHeight);
+	manifestoFading.update(incrementer);
+	manifestoFading.draw();
 }
 
 //--------------------------------------------------------------

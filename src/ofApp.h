@@ -8,6 +8,7 @@
 #include "HandMarker.hpp"
 #include "ImageAnimation.hpp"
 #include "TextTyping.hpp"
+#include "TextFading.hpp"
 
 class ofApp : public ofBaseApp{
 
@@ -38,6 +39,7 @@ class ofApp : public ofBaseApp{
         float fixedWidth = 1920.0;
         float fixedHeight = 1080.0;
 
+        int incrementer = 0;
     	float universalCounter = 0.0;
 
     	string message;
@@ -55,6 +57,7 @@ class ofApp : public ofBaseApp{
 
         // All images declared here
         ofImage background;
+        ofImage text1, text2, text3, text4, text5, text6, text7;
         // ofImage personName;
 
         // All image animations
@@ -62,5 +65,8 @@ class ofApp : public ofBaseApp{
 
         // All Text Typing animations
         // TextTyping personNameText;
-		
+
+        // All Text Fading animation stuff
+		vector<ofImage> texts;
+        TextFading manifestoFading;
 };
