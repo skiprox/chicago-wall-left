@@ -36,7 +36,7 @@ void TextFading::draw() {
 	if (inc >= fadeInStart) { // Fade in
 		// Change the textIncrementer
 		if (inc == fadeInStart) {
-			textIncrementer++;
+			textIncrementer = (textIncrementer + 1) % texts.size();
 		}
 		float easedValue = quadEaseOut(ofClamp(float(inc - fadeInStart)/float(fadeDifference), 0.0, 1.0));
 		// Change the opacity

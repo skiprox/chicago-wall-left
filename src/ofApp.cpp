@@ -143,7 +143,7 @@ void ofApp::drawBackground(){
 		}
 	}
 	ofPopStyle();
-	background.draw(0, 0, fixedWidth, fixedHeight);
+	// background.draw(0, 0, fixedWidth, fixedHeight);
 	manifestoFading.update(incrementer);
 	manifestoFading.draw();
 }
@@ -158,18 +158,28 @@ void ofApp::drawHandMarkers(){
 
 //--------------------------------------------------------------
 void ofApp::drawAnimations(){
+	bool runningAnyAnimations = false;
 	// Run through the `shouldRunAnimation` array, and run any of the animations that we should
 	for (int i = 0; i < shouldRunAnimation.size(); i++) {
 		if (shouldRunAnimation[i]) {
+			// We are in fact running an animation
+			runningAnyAnimations = true;
 			// Increase the animation counter,
 			// which is what we're using to run the animation for
 			// a set amount of time
 			animationCounter[i]++;
-			// If we haven't hit the threshold for how long to
-			// run the animation, fucking run it
-			if (animationCounter[i] <= animationCounterMax[i]) {
-				runAnimation(i);
-			} else { // Otherwise stop running the animation
+			// Run the fucking animation
+			runAnimation(i);
+		}
+	}
+	// If we are running any animations, increment
+	// the universal animation counter
+	// and check if we should stop running all animations
+	if (runningAnyAnimations) {
+		universalAnimationCounter++;
+		if (universalAnimationCounter >= universalAnimationCounterMax) {
+			universalAnimationCounter = 0;
+			for (int i = 0; i < shouldRunAnimation.size(); i++) {
 				shouldRunAnimation[i] = false;
 				animationCounter[i] = 0;
 			}
@@ -201,15 +211,20 @@ void ofApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void ofApp::checkShouldRunAnimations(int index){
+	bool shouldRunOne = false;
 	// EVERY BUTTON SHOULD RUN ANIMATIONS, NO CHECKS
 	if (index == 0) { // EUROPE
-		shouldRunAnimation[0] = true;
+		shouldRunOne = true;
 	} else if (index == 1) { // SOUTH AMERICA
-		shouldRunAnimation[1] = true;
+		shouldRunOne = true;
 	} else if (index == 2) { // NORTH AMERICA
-		shouldRunAnimation[2] = true;
+		shouldRunOne = true;
 	} else if (index == 3) { // ASIA
-		shouldRunAnimation[3] = true;
+		shouldRunOne = true;
+	}
+	if (shouldRunOne) {
+		shouldRunAnimation[index] = true;
+		universalAnimationCounter = 0;
 	}
 }
 
