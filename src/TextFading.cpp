@@ -31,18 +31,16 @@ void TextFading::update(int _inc) {
 void TextFading::draw() {
 	ofPushMatrix();
 	ofPushStyle();
-	int fadeDifference = fadeInStart - fadeOutStart;
-	float easedValue = quadEaseOut(ofClamp(float(inc - fadeInStart)/float(fadeDifference), 0.0, 1.0));
 	if (inc >= fadeInStart) { // Fade in
 		// Change the textIncrementer
 		if (inc == fadeInStart) {
 			textIncrementer = (textIncrementer + 1) % texts.size();
 		}
-		float easedValue = quadEaseOut(ofClamp(float(inc - fadeInStart)/float(fadeDifference), 0.0, 1.0));
+		float easedValue = quadEaseOut(ofClamp(float(inc - fadeInStart)/float(incMax - fadeInStart), 0.0, 1.0));
 		// Change the opacity
 		ofSetColor(255, 255, 255, ofMap(easedValue, 0.0, 1.0, 0, 255));
 	} else if (inc >= fadeOutStart) { // Fade out
-		float easedValue = quadEaseOut(ofClamp(float(inc - fadeOutStart)/float(fadeDifference), 0.0, 1.0));
+		float easedValue = quadEaseOut(ofClamp(float(inc - fadeOutStart)/float(fadeInStart - fadeOutStart), 0.0, 1.0));
 		// Change the opacity
 		ofSetColor(255, 255, 255, ofMap(easedValue, 0.0, 1.0, 255, 0));
 	}
