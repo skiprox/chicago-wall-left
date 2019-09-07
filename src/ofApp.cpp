@@ -21,13 +21,17 @@ void ofApp::setup(){
 void ofApp::setupMedia(){
 	// IMAGES
 	background.load("images/background.png");
-	text1.load("images/lorem1.png");
-	text2.load("images/lorem2.png");
-	text3.load("images/lorem3.png");
-	text4.load("images/lorem4.png");
-	text5.load("images/lorem5.png");
-	text6.load("images/lorem6.png");
-	text7.load("images/lorem7.png");
+	text1.load("images/manifesto-1.png");
+	text2.load("images/manifesto-2.png");
+	text3.load("images/manifesto-3.png");
+	text4.load("images/manifesto-4.png");
+	text5.load("images/manifesto-5.png");
+	text6.load("images/manifesto-6.png");
+	text7.load("images/manifesto-7.png");
+	text8.load("images/manifesto-8.png");
+	text9.load("images/manifesto-9.png");
+	text10.load("images/manifesto-10.png");
+	text11.load("images/manifesto-11.png");
 }
 
 //--------------------------------------------------------------
