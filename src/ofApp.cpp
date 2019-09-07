@@ -10,7 +10,7 @@ void ofApp::setup(){
 	mySerial.listDevices();
 	vector <ofSerialDeviceInfo> deviceList = mySerial.getDeviceList();
 	mySerial.setup(0, baud); //open the first device
-	mySerial.startContinuousRead();
+	mySerial.startContinuousRead(false);
 	ofAddListener(mySerial.NEW_MESSAGE,this,&ofApp::onNewMessage);
 	message = "";
 	setupMedia();
@@ -117,6 +117,7 @@ void ofApp::updateSerials(){
 
 //--------------------------------------------------------------
 void ofApp::onNewMessage(string & message){
+	cout << "THE MESSAGE " << message << endl;
 	vector<string> input = ofSplitString(message, ",");
 	serialInput.clear();
 	for (int i = 0; i < input.size() - 1; i++) {
