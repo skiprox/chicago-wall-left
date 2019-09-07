@@ -69,6 +69,10 @@ void ofApp::setupAnimations(){
 	texts.push_back(text5);
 	texts.push_back(text6);
 	texts.push_back(text7);
+	texts.push_back(text8);
+	texts.push_back(text9);
+	texts.push_back(text10);
+	texts.push_back(text11);
 	manifestoFading = TextFading(texts);
 	/**
 	 * ALL THE HAND MARKERS GO HERE
