@@ -46,15 +46,15 @@ class ofApp : public ofBaseApp{
 
     	vector<int> serialInput;
 
-    	std::array<int, 4> touchThreshold = {{0, 0, 0, 0}};
+    	std::array<int, 3> touchThreshold = {{0, 0, 0}};
 
-    	std::array<bool, 4> shouldRunAnimation = {{false, false, false, false}};
-    	std::array<int, 4> animationCounter = {{0, 0, 0, 0}};
+    	std::array<bool, 3> shouldRunAnimation = {{false, false, false}};
+    	std::array<int, 3> animationCounter = {{0, 0, 0}};
     	int universalAnimationCounter = 0;
         int universalAnimationCounterMax = 5000;
 
     	// All the hand markers declared here
-    	std::array<HandMarker, 4> handMarkers;
+    	std::array<HandMarker, 3> handMarkers;
 
         // All images declared here
         ofImage background;

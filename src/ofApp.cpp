@@ -50,16 +50,6 @@ void ofApp::setupAnimations(){
 	// 	300
 	// );
 	/**
-	 * ALL THE TEXT TYPING GO HERE
-	 */
-	// personOneText = TextTyping(
-	// 	"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
-	// 	glm::vec2(150, 780),
-	// 	ofColor(255),
-	// 	7,
-	// 	150
-	// );
-	/**
 	 * ALL THE TEXT FADING GO HERE
 	 */
 	texts.push_back(text1);
@@ -83,8 +73,6 @@ void ofApp::setupAnimations(){
 	handMarkers[1] = HandMarker(glm::vec2(fixedWidth/2.0 + 40, fixedHeight - 115), red, false);
 	// NORTH AMERICA
 	handMarkers[2] = HandMarker(glm::vec2(fixedWidth/3.0 * 2.0 + 60, fixedHeight - 185), red, false);
-	// ASIA
-	handMarkers[3] = HandMarker(glm::vec2(60, fixedHeight/2.0 + 80), red, true);
 }
 
 //--------------------------------------------------------------
@@ -228,10 +216,16 @@ void ofApp::checkShouldRunAnimations(int index){
 		shouldRunOne = true;
 	} else if (index == 2) { // NORTH AMERICA
 		shouldRunOne = true;
-	} else if (index == 3) { // ASIA
-		shouldRunOne = true;
 	}
 	if (shouldRunOne) {
+		// Reset all animations (if not already running this one)
+		// then run this one
+		if (!shouldRunAnimation[index] == true) {
+			for (int i = 0; i < shouldRunAnimation.size(); i++) {
+				shouldRunAnimation[i] = false;
+				animationCounter[i] = 0;
+			}
+		}
 		shouldRunAnimation[index] = true;
 		universalAnimationCounter = 0;
 	}
@@ -244,24 +238,27 @@ void ofApp::runAnimation(int animationNum){
 		// PEOPLE SHOW UP
 		case 0:
 			ofPushStyle();
+			ofSetColor(255, 255, 0);
+			ofFill();
+			ofDrawRectangle(0, 600, 100, 100);
 			ofPopStyle();
 			break;
 		// SOUTH AMERICA PRESSED
 		// PEOPLE SHOW UP
 		case 1:
 			ofPushStyle();
+			ofSetColor(255, 255, 0);
+			ofFill();
+			ofDrawRectangle(200, 600, 100, 100);
 			ofPopStyle();
 			break;
 		// NORTH AMERICA PRESSED
 		// PEOPLE SHOW UP
 		case 2:
 			ofPushStyle();
-			ofPopStyle();
-			break;
-		// ASIA PRESSED
-		// PEOPLE SHOW UP
-		case 3:
-			ofPushStyle();
+			ofSetColor(255, 255, 0);
+			ofFill();
+			ofDrawRectangle(400, 600, 100, 100);
 			ofPopStyle();
 			break;
 		default:
