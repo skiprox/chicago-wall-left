@@ -32,6 +32,9 @@ void ofApp::setupMedia(){
 	text9.load("images/manifesto-9.png");
 	text10.load("images/manifesto-10.png");
 	text11.load("images/manifesto-11.png");
+	peopleEurope.load("images/people-europe.png");
+	peopleNorthAmerica.load("images/people-northamerica.png");
+	peopleSouthAmerica.load("images/people-southamerica.png");
 }
 
 //--------------------------------------------------------------
@@ -43,12 +46,24 @@ void ofApp::setupAnimations(){
 	/**
 	 * ALL THE IMAGE ANIMATIONS GO HERE
 	 */
-	// personOneAnimation = ImageAnimation(
-	// 	personOne,
-	// 	glm::vec2(fixedWidth/2.0, fixedHeight - 120),
-	// 	glm::vec2(800, 184),
-	// 	300
-	// );
+	pplEuropeAnimation = ImageAnimation(
+		peopleEurope,
+		glm::vec2(fixedWidth/2.0, fixedHeight/2.0),
+		glm::vec2(882, 496),
+		250
+	);
+	pplSouthAmericaAnimation = ImageAnimation(
+		peopleSouthAmerica,
+		glm::vec2(fixedWidth/3.0 * 2.0, fixedHeight/2.0),
+		glm::vec2(506, 262),
+		250
+	);
+	pplNorthAmericaAnimation = ImageAnimation(
+		peopleNorthAmerica,
+		glm::vec2(fixedWidth/2.0, fixedHeight/2.0),
+		glm::vec2(605, 500),
+		250
+	);
 	/**
 	 * ALL THE TEXT FADING GO HERE
 	 */
@@ -238,27 +253,24 @@ void ofApp::runAnimation(int animationNum){
 		// PEOPLE SHOW UP
 		case 0:
 			ofPushStyle();
-			ofSetColor(255, 255, 0);
-			ofFill();
-			ofDrawRectangle(0, 600, 100, 100);
+			pplEuropeAnimation.update(animationCounter[0]);
+			pplEuropeAnimation.draw();
 			ofPopStyle();
 			break;
 		// SOUTH AMERICA PRESSED
 		// PEOPLE SHOW UP
 		case 1:
 			ofPushStyle();
-			ofSetColor(255, 255, 0);
-			ofFill();
-			ofDrawRectangle(200, 600, 100, 100);
+			pplSouthAmericaAnimation.update(animationCounter[1]);
+			pplSouthAmericaAnimation.draw();
 			ofPopStyle();
 			break;
 		// NORTH AMERICA PRESSED
 		// PEOPLE SHOW UP
 		case 2:
 			ofPushStyle();
-			ofSetColor(255, 255, 0);
-			ofFill();
-			ofDrawRectangle(400, 600, 100, 100);
+			pplNorthAmericaAnimation.update(animationCounter[2]);
+			pplNorthAmericaAnimation.draw();
 			ofPopStyle();
 			break;
 		default:

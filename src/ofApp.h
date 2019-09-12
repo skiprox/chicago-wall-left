@@ -51,7 +51,7 @@ class ofApp : public ofBaseApp{
     	std::array<bool, 3> shouldRunAnimation = {{false, false, false}};
     	std::array<int, 3> animationCounter = {{0, 0, 0}};
     	int universalAnimationCounter = 0;
-        int universalAnimationCounterMax = 5000;
+        int universalAnimationCounterMax = 10000;
 
     	// All the hand markers declared here
     	std::array<HandMarker, 3> handMarkers;
@@ -59,10 +59,13 @@ class ofApp : public ofBaseApp{
         // All images declared here
         ofImage background;
         ofImage text1, text2, text3, text4, text5, text6, text7, text8, text9, text10, text11;
+        ofImage peopleEurope, peopleNorthAmerica, peopleSouthAmerica;
         // ofImage personName;
 
         // All image animations
-        // ImageAnimation personNameAnimation;
+        ImageAnimation pplEuropeAnimation,
+            pplNorthAmericaAnimation,
+            pplSouthAmericaAnimation;
 
         // All Text Typing animations
         // TextTyping personNameText;
