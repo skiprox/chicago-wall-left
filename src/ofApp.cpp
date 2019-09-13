@@ -35,6 +35,9 @@ void ofApp::setupMedia(){
 	peopleEurope.load("images/people-europe.png");
 	peopleNorthAmerica.load("images/people-northamerica.png");
 	peopleSouthAmerica.load("images/people-southamerica.png");
+	dotsEurope.load("images/dots-europe.png");
+	dotsNorthAmerica.load("images/dots-northamerica.png");
+	dotsSouthAmerica.load("images/dots-southamerica.png");
 }
 
 //--------------------------------------------------------------
@@ -49,19 +52,37 @@ void ofApp::setupAnimations(){
 	pplEuropeAnimation = ImageAnimation(
 		peopleEurope,
 		glm::vec2(fixedWidth/2.0, fixedHeight/2.0),
-		glm::vec2(882, 496),
+		glm::vec2(fixedWidth, fixedHeight),
 		250
 	);
 	pplSouthAmericaAnimation = ImageAnimation(
 		peopleSouthAmerica,
-		glm::vec2(fixedWidth/3.0 * 2.0, fixedHeight/2.0),
-		glm::vec2(506, 262),
+		glm::vec2(fixedWidth/2.0, fixedHeight/2.0),
+		glm::vec2(fixedWidth, fixedHeight),
 		250
 	);
 	pplNorthAmericaAnimation = ImageAnimation(
 		peopleNorthAmerica,
 		glm::vec2(fixedWidth/2.0, fixedHeight/2.0),
-		glm::vec2(605, 500),
+		glm::vec2(fixedWidth, fixedHeight),
+		250
+	);
+	dotsEuropeAnimation = ImageAnimation(
+		dotsEurope,
+		glm::vec2(fixedWidth/2.0, fixedHeight/2.0),
+		glm::vec2(fixedWidth, fixedHeight),
+		250
+	);
+	dotsSouthAmericaAnimation = ImageAnimation(
+		dotsSouthAmerica,
+		glm::vec2(fixedWidth/2.0, fixedHeight/2.0),
+		glm::vec2(fixedWidth, fixedHeight),
+		250
+	);
+	dotsNorthAmericaAnimation = ImageAnimation(
+		dotsNorthAmerica,
+		glm::vec2(fixedWidth/2.0, fixedHeight/2.0),
+		glm::vec2(fixedWidth, fixedHeight),
 		250
 	);
 	/**
@@ -255,6 +276,8 @@ void ofApp::runAnimation(int animationNum){
 			ofPushStyle();
 			pplEuropeAnimation.update(animationCounter[0]);
 			pplEuropeAnimation.draw();
+			dotsEuropeAnimation.update(animationCounter[0]);
+			dotsEuropeAnimation.draw();
 			ofPopStyle();
 			break;
 		// SOUTH AMERICA PRESSED
@@ -263,6 +286,8 @@ void ofApp::runAnimation(int animationNum){
 			ofPushStyle();
 			pplSouthAmericaAnimation.update(animationCounter[1]);
 			pplSouthAmericaAnimation.draw();
+			dotsSouthAmericaAnimation.update(animationCounter[1]);
+			dotsSouthAmericaAnimation.draw();
 			ofPopStyle();
 			break;
 		// NORTH AMERICA PRESSED
@@ -271,6 +296,8 @@ void ofApp::runAnimation(int animationNum){
 			ofPushStyle();
 			pplNorthAmericaAnimation.update(animationCounter[2]);
 			pplNorthAmericaAnimation.draw();
+			dotsNorthAmericaAnimation.update(animationCounter[2]);
+			dotsNorthAmericaAnimation.draw();
 			ofPopStyle();
 			break;
 		default:
