@@ -6,7 +6,6 @@ void ofApp::setup(){
 	ofSetCircleResolution(100);
 	width = ofGetWidth();
 	height = ofGetHeight();
-	cout << "WIDTH: " << width << " HEIGHT: " << height << endl;
 	mySerial.listDevices();
 	vector <ofSerialDeviceInfo> deviceList = mySerial.getDeviceList();
 	mySerial.setup(0, baud); //open the first device
@@ -145,7 +144,6 @@ void ofApp::updateSerials(){
 
 //--------------------------------------------------------------
 void ofApp::onNewMessage(string & message){
-	cout << "THE MESSAGE " << message << endl;
 	vector<string> input = ofSplitString(message, ",");
 	serialInput.clear();
 	for (int i = 0; i < input.size() - 1; i++) {
