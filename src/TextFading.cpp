@@ -45,11 +45,11 @@ void TextFading::draw() {
 		ofSetColor(255, 255, 255, ofMap(easedValue, 0.0, 1.0, 255, 0));
 	}
 	// Left image
-	texts[textIncrementer].draw(0, 0, 640, 378);
+	texts[textIncrementer].draw(0, 0, 639, 414);
 	// Center image
-	texts[(textIncrementer + 1) % texts.size()].draw(fixedWidth/3.0, 0, 640, 378);
+	texts[(textIncrementer + 1) % texts.size()].draw(fixedWidth/3.0, 0, 639, 414);
 	// Right image
-	texts[(textIncrementer + 2) % texts.size()].draw(fixedWidth/3.0 * 2.0, 0, 640, 378);
+	texts[(textIncrementer + 2) % texts.size()].draw(fixedWidth/3.0 * 2.0, 0, 639, 414);
 	ofPopStyle();
 	ofPopMatrix();
 }

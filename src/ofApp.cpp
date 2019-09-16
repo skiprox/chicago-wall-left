@@ -19,7 +19,6 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::setupMedia(){
 	// IMAGES
-	background.load("images/background.png");
 	text1.load("images/manifesto-1.png");
 	text2.load("images/manifesto-2.png");
 	text3.load("images/manifesto-3.png");
@@ -34,9 +33,6 @@ void ofApp::setupMedia(){
 	peopleEurope.load("images/people-europe.png");
 	peopleNorthAmerica.load("images/people-northamerica.png");
 	peopleSouthAmerica.load("images/people-southamerica.png");
-	dotsEurope.load("images/dots-europe.png");
-	dotsNorthAmerica.load("images/dots-northamerica.png");
-	dotsSouthAmerica.load("images/dots-southamerica.png");
 }
 
 //--------------------------------------------------------------
@@ -66,24 +62,6 @@ void ofApp::setupAnimations(){
 		glm::vec2(fixedWidth, fixedHeight),
 		250
 	);
-	dotsEuropeAnimation = ImageAnimation(
-		dotsEurope,
-		glm::vec2(fixedWidth/2.0, fixedHeight/2.0),
-		glm::vec2(fixedWidth, fixedHeight),
-		250
-	);
-	dotsSouthAmericaAnimation = ImageAnimation(
-		dotsSouthAmerica,
-		glm::vec2(fixedWidth/2.0, fixedHeight/2.0),
-		glm::vec2(fixedWidth, fixedHeight),
-		250
-	);
-	dotsNorthAmericaAnimation = ImageAnimation(
-		dotsNorthAmerica,
-		glm::vec2(fixedWidth/2.0, fixedHeight/2.0),
-		glm::vec2(fixedWidth, fixedHeight),
-		250
-	);
 	/**
 	 * ALL THE TEXT FADING GO HERE
 	 */
@@ -103,11 +81,11 @@ void ofApp::setupAnimations(){
 	 * ALL THE HAND MARKERS GO HERE
 	 */
 	// EUROPE
-	handMarkers[0] = HandMarker(glm::vec2(60, fixedHeight - 100), red, true);
+	handMarkers[0] = HandMarker(glm::vec2(fixedWidth/3.0, fixedHeight - 50), red, false);
 	// SOUTH AMERICA
-	handMarkers[1] = HandMarker(glm::vec2(fixedWidth/2.0 + 40, fixedHeight - 115), red, false);
+	handMarkers[1] = HandMarker(glm::vec2(fixedWidth/2.0, fixedHeight - 50), red, false);
 	// NORTH AMERICA
-	handMarkers[2] = HandMarker(glm::vec2(fixedWidth/3.0 * 2.0 + 60, fixedHeight - 185), red, false);
+	handMarkers[2] = HandMarker(glm::vec2(fixedWidth/3.0 * 2.0, fixedHeight - 50), red, false);
 }
 
 //--------------------------------------------------------------
@@ -160,21 +138,7 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::drawBackground(){
-	ofPushStyle();
 	ofBackground(0);
-	ofSetColor(255);
-	// Draw up and down lines
-	for (int i = 0; i < 2; i++) {
-		ofDrawRectangle(fixedWidth/3.0 * (i + 1) - 1, 0, 2, fixedHeight);
-		float divConst = 5.0;
-		if (i == 0) {
-			ofDrawRectangle(0, fixedHeight/divConst, fixedWidth, 2);
-		} else {
-			ofDrawRectangle(0, fixedHeight - fixedHeight/divConst, fixedWidth, 2);
-		}
-	}
-	ofPopStyle();
-	// background.draw(0, 0, fixedWidth, fixedHeight);
 	manifestoFading.update(incrementer);
 	manifestoFading.draw();
 }
@@ -184,7 +148,6 @@ void ofApp::drawHandMarkers(){
 	handMarkers[0].draw();
 	handMarkers[1].draw();
 	handMarkers[2].draw();
-	handMarkers[3].draw();
 }
 
 //--------------------------------------------------------------
@@ -274,8 +237,6 @@ void ofApp::runAnimation(int animationNum){
 			ofPushStyle();
 			pplEuropeAnimation.update(animationCounter[0]);
 			pplEuropeAnimation.draw();
-			dotsEuropeAnimation.update(animationCounter[0]);
-			dotsEuropeAnimation.draw();
 			ofPopStyle();
 			break;
 		// SOUTH AMERICA PRESSED
@@ -284,8 +245,6 @@ void ofApp::runAnimation(int animationNum){
 			ofPushStyle();
 			pplSouthAmericaAnimation.update(animationCounter[1]);
 			pplSouthAmericaAnimation.draw();
-			dotsSouthAmericaAnimation.update(animationCounter[1]);
-			dotsSouthAmericaAnimation.draw();
 			ofPopStyle();
 			break;
 		// NORTH AMERICA PRESSED
@@ -294,8 +253,6 @@ void ofApp::runAnimation(int animationNum){
 			ofPushStyle();
 			pplNorthAmericaAnimation.update(animationCounter[2]);
 			pplNorthAmericaAnimation.draw();
-			dotsNorthAmericaAnimation.update(animationCounter[2]);
-			dotsNorthAmericaAnimation.draw();
 			ofPopStyle();
 			break;
 		default:

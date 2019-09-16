@@ -25,8 +25,8 @@ public:
 	int textIncrementer = 0;
 
 	int incMax = 3000;
-	int fadeOutStart = 2000;
-	int fadeInStart = 2600;
+	int fadeOutStart = 2200;
+	int fadeInStart = 2800;
 
 	float fixedWidth = 1920.0;
 };
