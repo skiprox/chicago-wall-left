@@ -2,6 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	ofHideCursor();
 	ofBackground(0);
 	ofSetCircleResolution(100);
 	width = ofGetWidth();
