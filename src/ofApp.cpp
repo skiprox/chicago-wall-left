@@ -81,11 +81,11 @@ void ofApp::setupAnimations(){
 	 * ALL THE HAND MARKERS GO HERE
 	 */
 	// EUROPE
-	handMarkers[0] = HandMarker(glm::vec2(fixedWidth/3.0 - 40, fixedHeight - 16), red, true);
+	handMarkers[0] = HandMarker(glm::vec2(fixedWidth/3.0 - 43, fixedHeight - 18), red, true);
 	// SOUTH AMERICA
-	handMarkers[1] = HandMarker(glm::vec2(fixedWidth/2.0 - 75, fixedHeight - 20), red, true);
+	handMarkers[1] = HandMarker(glm::vec2(fixedWidth/2.0 - 79, fixedHeight - 24), red, true);
 	// NORTH AMERICA
-	handMarkers[2] = HandMarker(glm::vec2(fixedWidth/3.0 * 2.0 - 105, fixedHeight - 16), red, true);
+	handMarkers[2] = HandMarker(glm::vec2(fixedWidth/3.0 * 2.0 - 108, fixedHeight - 18), red, true);
 }
 
 //--------------------------------------------------------------
