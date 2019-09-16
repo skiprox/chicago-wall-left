@@ -83,7 +83,7 @@ void ofApp::setupAnimations(){
 	// EUROPE
 	handMarkers[0] = HandMarker(glm::vec2(fixedWidth/3.0 - 44, fixedHeight - 20), red, true);
 	// SOUTH AMERICA
-	handMarkers[1] = HandMarker(glm::vec2(fixedWidth/2.0 - 81, fixedHeight - 27), red, true);
+	handMarkers[1] = HandMarker(glm::vec2(fixedWidth/2.0 - 84, fixedHeight - 30), red, true);
 	// NORTH AMERICA
 	handMarkers[2] = HandMarker(glm::vec2(fixedWidth/3.0 * 2.0 - 110, fixedHeight - 20), red, true);
 }
