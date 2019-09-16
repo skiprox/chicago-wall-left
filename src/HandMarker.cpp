@@ -34,20 +34,20 @@ void HandMarker::update(float _inc) {
 void HandMarker::draw() {
 	ofPushStyle();
 	ofSetColor(color);
-	float radius = 30 + 8 * sin(inc);
+	float radius = 20 + 8 * sin(inc);
 	if (isCircle) {
 		ofFill();
 		ofDrawCircle(center.x, center.y, radius);
 		ofNoFill();
 		ofSetColor(color);
-		ofDrawCircle(center.x, center.y, 40);
+		ofDrawCircle(center.x, center.y, 30);
 	} else {
 		ofSetRectMode(OF_RECTMODE_CENTER);
 		ofFill();
 		ofDrawRectangle(center.x, center.y, radius, radius);
 		ofNoFill();
 		ofSetColor(color);
-		ofDrawRectangle(center.x, center.y, 40, 40);
+		ofDrawRectangle(center.x, center.y, 30, 30);
 	}
 	ofPopStyle();
 }
