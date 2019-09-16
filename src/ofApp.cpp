@@ -20,6 +20,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::setupMedia(){
 	// IMAGES
+	title.load("images/title.png");
 	text1.load("images/manifesto-1.png");
 	text2.load("images/manifesto-2.png");
 	text3.load("images/manifesto-3.png");
@@ -140,6 +141,7 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::drawBackground(){
 	ofBackground(0);
+	title.draw(0, 0, 800, 130);
 	manifestoFading.update(incrementer);
 	manifestoFading.draw();
 }
