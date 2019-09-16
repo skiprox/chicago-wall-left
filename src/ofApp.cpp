@@ -21,6 +21,7 @@ void ofApp::setup(){
 void ofApp::setupMedia(){
 	// IMAGES
 	title.load("images/title.png");
+	layerZero.load("images/layerzero.png");
 	text1.load("images/manifesto-1.png");
 	text2.load("images/manifesto-2.png");
 	text3.load("images/manifesto-3.png");
@@ -142,6 +143,11 @@ void ofApp::draw(){
 void ofApp::drawBackground(){
 	ofBackground(0);
 	title.draw(0, 0, 800, 130);
+	if (!shouldRunAnimation[0] &&
+		!shouldRunAnimation[1] &&
+		!shouldRunAnimation[2]) {
+		layerZero.draw(0, 0, 1920, 1080);
+	}
 	manifestoFading.update(incrementer);
 	manifestoFading.draw();
 }
